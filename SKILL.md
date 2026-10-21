@@ -108,30 +108,16 @@ Do not assume one universal Claude default. When unsure, start with the **Opus 5
 
 **ChatGPT / OpenAI GPT models**
 
-Identify the target surface (ChatGPT, Codex, or API) and preserve the user's selected model. Availability, tools, and controls differ across surfaces. Use the Model Recency Gate for newer models and exact settings.
-
-*GPT-6 family and GPT-6.1 Sol:*
-- **GPT-6 Luna** (`gpt-6-luna`): focused, high-volume tasks. As a prompting starting point, keep the task narrow, define the output format, and add examples only when they resolve ambiguity.
-- **GPT-6.1 Sol** (`gpt-6.1-sol`): complex coding, computer use, and professional work at a lower cost than Astra. As a prompting starting point, emphasize relevant implementation context and observable acceptance criteria.
-- **GPT-6 Astra** (`gpt-6-astra`): demanding reasoning, coding, research, computer use, and document work. As a prompting starting point, include decision criteria, evidence requirements, and a clear completion contract.
-- Treat these adaptations as heuristics to evaluate on representative tasks, not measured guarantees. Model roles and controls are documented in the official sources linked under Template N.
-- For Astra, clarify when routine assumptions are acceptable, honor existing authorization, and request progress at meaningful milestones. Specify writing style, delegation limits, and proportionate verification when relevant; audit conflicting skill instructions that could cause unnecessary pauses.
-- Use Template N for complex OpenAI tasks. Omit sections that do not affect the result.
-- Keep runtime configuration outside the copyable prompt. A model name or effort instruction in prompt text does not change the selected model or runtime settings.
-- For API tools, use Responses. Astra and GPT-6.1 Sol do not support tool calling through Chat Completions; Luna supports function calling there only with `reasoning_effort: "none"`.
-- Supported API effort values: Luna accepts `none`, `low`, `medium`, `high`, `xhigh`, and `max`; Astra and GPT-6.1 Sol accept `low`, `medium`, `high`, `xhigh`, and `max`. Recheck the exact model and endpoint before recommending settings; do not carry GPT-5.6-specific controls into newer models without verification.
-
-*GPT-5.6 compatibility:*
-- GPT-5.6 family: **Sol** (`gpt-5.6-sol`, also the `gpt-5.6` alias) for flagship capability, **Terra** (`gpt-5.6-terra`) for balanced everyday work, and **Luna** (`gpt-5.6-luna`) for fast, repeatable, high-volume work. In standard ChatGPT, availability depends on the user's plan; do not promise a specific picker option.
-- Start lean. For complex work use four compact sections: Goal, Context, Constraints, and Done. State each instruction once.
-- GPT-5.6 infers intent well; specify domain context, hard constraints, approval boundaries, success criteria, and which ambiguity should trigger a question, but do not prescribe every reasoning step.
-- Define autonomy clearly: safe in-scope local inspection, edits, and validation may proceed; external writes, destructive actions, purchases, and material scope expansion require confirmation.
-- Use the lowest reasoning effort that meets the quality bar.
-- For the API, recommend higher effort, `reasoning.mode: "pro"`, or Responses multi-agent beta only when measured quality justifies the added latency and cost. Pro mode is not a separate API model slug.
-- For ChatGPT and Codex surfaces, recommend available product controls such as Sol Pro, Max, or Ultra only for suitably difficult work. Do not translate those UI controls into API parameters.
-- State tool-use expectations and required evidence explicitly. Use programmatic or multi-agent tool orchestration only for bounded work that divides cleanly.
-- Never request hidden reasoning. Ask for conclusions, assumptions, evidence, and checks.
-- Control visible length with the output contract (and `text.verbosity` in the API), not by asking for less thinking.
+Identify the surface (ChatGPT, Codex, or API), preserve the selected model, and use the Model Recency Gate for availability and exact controls.
+- Route GPT-6 Luna (`gpt-6-luna`) to focused, high-volume tasks; GPT-6.1 Sol (`gpt-6.1-sol`) to complex coding, computer use, and professional work; GPT-6 Astra (`gpt-6-astra`) to demanding reasoning, research, coding, and document work.
+- Preserve GPT-5.6 choices: Sol (`gpt-5.6-sol`, alias `gpt-5.6`) for flagship capability, Terra (`gpt-5.6-terra`) for balanced everyday work, and Luna (`gpt-5.6-luna`) for fast, repeatable tasks. ChatGPT availability depends on the user's plan.
+- Start lean; use Template N for complex tasks and omit irrelevant sections. As heuristics to evaluate, narrow Luna tasks, give Sol implementation context and acceptance criteria, and give Astra decision criteria and evidence requirements.
+- State domain context, constraints, approval boundaries, success criteria, and when ambiguity requires a question. Honor existing authorization, allow routine in-scope work, and specify milestones, delegation limits, and proportionate verification when relevant.
+- For GPT-6 API tools, use Responses: Astra and GPT-6.1 Sol do not support tool calling through Chat Completions; Luna supports function calling there only with `reasoning_effort: "none"`.
+- Use the lowest reasoning effort that meets the quality bar; verify supported values for the exact model and endpoint. Do not transfer GPT-5.6-specific controls to newer models without verification.
+- Keep runtime settings outside the copyable prompt. For GPT-5.6, use higher effort, `reasoning.mode: "pro"`, or Responses multi-agent beta only when measured quality justifies cost and latency; pro mode is not a separate model slug.
+- Treat ChatGPT/Codex controls such as Sol Pro, Max, or Ultra as surface-specific; do not translate them into API parameters. Prompt text does not change the selected model or runtime settings.
+- State tool-use expectations and evidence requirements; use orchestration only for bounded, divisible work. Ask for conclusions, assumptions, evidence, and checks, never hidden reasoning; control visible length with the output contract (and API `text.verbosity`).
 
 ---
 
