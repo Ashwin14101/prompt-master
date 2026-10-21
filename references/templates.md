@@ -480,11 +480,4 @@ Output:
 - Define tool access and authorization only for agentic tasks. For long work, request milestones and blockers instead of a message after every action.
 - Keep API and harness settings in setup notes outside the prompt. Verify supported controls for the exact model, endpoint, and surface.
 
-**Official sources** (checked 2026-10-21; recheck through the Model Recency Gate):
-- [GPT-6 Luna model](https://developers.openai.com/api/docs/models/gpt-6-luna): task fit, model ID, effort support, and tool compatibility.
-- [GPT-6.1 Sol model](https://developers.openai.com/api/docs/models/gpt-6.1-sol): task fit, model ID, effort support, and tool compatibility.
-- [GPT-6 Astra model](https://developers.openai.com/api/docs/models/gpt-6-astra): task fit, model ID, effort support, and tool compatibility.
-- [Using GPT-6](https://developers.openai.com/api/docs/guides/latest-model): family guidance, Astra behavior, and migration notes; the page also retains GPT-5.6 guidance.
-- [Reasoning best practices](https://developers.openai.com/api/docs/guides/reasoning-best-practices): direct instructions, examples when needed, and avoiding chain-of-thought requests.
-
 The task brief and adaptation heuristics are Prompt Master recommendations, not an official OpenAI template or benchmark result.
